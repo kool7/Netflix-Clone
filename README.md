@@ -1,0 +1,1 @@
+This is a Netflix Web Application Clone made using react for learning purpose.
