@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../adapters/SuperbaseClient';
+import { useNavigate } from 'react-router-dom';
 import "./Navigation.css";
 
 function Navigation() {
 
     const [show, handleShow] = useState(false);
+    const navigate = useNavigate();
 
     const transitionNavBar = () => {
         if (window.scrollY > 100) {
@@ -20,10 +21,6 @@ function Navigation() {
             window.addEventListener("scroll", transitionNavBar); 
         }
     }, []);
-
-    const logout = async (e: React.MouseEvent<HTMLSpanElement>): Promise<any> => {
-        await supabase.auth.signOut()
-      };
     
     return (
         <div className={`navigation ${show && "nav_black"}`}>
@@ -32,13 +29,14 @@ function Navigation() {
                     className="logo" 
                     src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" 
                     alt="Netflix logo"
+                    onClick={() => navigate('/')}
                 />
 
                 <img
                     className="avatar" 
                     src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" 
                     alt="Avatar"
-                    onClick={logout}
+                    onClick={() => navigate('/profile')}
                 />
             </div>
 

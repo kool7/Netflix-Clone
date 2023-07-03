@@ -6,6 +6,7 @@ import { supabase } from "./adapters/SuperbaseClient";
 import { login, logout, selectUser } from "./features/userSlice";
 import Home from './home/Home';
 import Login from './login/Login';
+import Profile from "./profile/Profile";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           !user ?
           <Login/> : 
           <Routes>
+            <Route path='/profile' element={<Profile />}/>
             <Route path='/' element={<Home />}/>
           </Routes>
         }

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../adapters/SuperbaseClient';
 import './SignIn.css';
 
@@ -6,6 +7,7 @@ function SignIn() {
 
   const emailRef = useRef<HTMLInputElement>(null!);
   const passwordRef = useRef<HTMLInputElement>(null!);
+  const navigate = useNavigate();
 
   const register = async (e: React.MouseEvent<HTMLSpanElement>): Promise<any> => {
     e.preventDefault();
@@ -25,6 +27,7 @@ function SignIn() {
       password: passwordRef.current?.value,
     })
     
+    navigate('/');
   };
 
   return (
