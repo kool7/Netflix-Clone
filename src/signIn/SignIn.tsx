@@ -12,7 +12,7 @@ function SignIn() {
   const register = async (e: React.MouseEvent<HTMLSpanElement>): Promise<any> => {
     e.preventDefault();
 
-    const { data, error } = await supabase.auth.signUp({
+    await supabase.auth.signUp({
       email: emailRef.current?.value,
       password: passwordRef.current?.value,
     })
@@ -22,7 +22,7 @@ function SignIn() {
   const signIn = async (e: React.MouseEvent<HTMLSpanElement>): Promise<any> => {
     e.preventDefault();
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    await supabase.auth.signInWithPassword({
       email: emailRef.current?.value,
       password: passwordRef.current?.value,
     })
@@ -31,7 +31,7 @@ function SignIn() {
   };
 
   return (
-    <div className="signup">
+    <div className="signup" data-testid="sign-in-component">
       <form>
         <h1>Sign In</h1>
         <input type="email" name="" id="email" placeholder="Email or phone number" ref={emailRef}/>

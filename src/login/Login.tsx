@@ -4,7 +4,7 @@ import './Login.css';
 
 function Login() {
 
-  const [sigIn, setSignIn] = useState<boolean>(false);
+  const [signIn, setSignIn] = useState<boolean>(false);
   
   return (
     <div className='login'>
@@ -21,7 +21,7 @@ function Login() {
 
       <div className="login_body">
         {
-          sigIn ? 
+          signIn ? 
           <SignIn /> :
           <>
             <h1>Unlimited movies, TV shows and more</h1>

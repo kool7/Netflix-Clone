@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session);
       if (event === "SIGNED_IN") {
         dispatch(
           login({

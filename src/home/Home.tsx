@@ -6,7 +6,7 @@ import './Home.css';
 
 function HomeScreen() {
   return (
-    <div>
+    <div data-testid="home">
       <Navigation />
       <Banner />
       <Row
