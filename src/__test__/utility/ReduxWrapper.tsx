@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { store } from './app/store'
+import { store } from '../../app/store'
 
 function ReduxWrapper({children} : {children : React.ReactNode}) {
   return (
