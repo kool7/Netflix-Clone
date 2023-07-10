@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Home from "../home/Home";
+import Home from "../../../home/Home";
 
-jest.mock("../adapters/Requests", () => ({
+jest.mock("../../../adapters/Requests", () => ({
   fetchNetflixOriginals: "/mock-netflix-originals",
   fetchTrending: "/mock-trending",
   fetchTopRated: "/mock-top-rated",
@@ -11,12 +11,12 @@ jest.mock("../adapters/Requests", () => ({
   fetchDocumentaries: "/mock-documentaries",
 }));
 
-jest.mock("../banner/Banner", () => () => <div data-testid="mock-banner" />);
-jest.mock("../navigation/Navigation", () => () => (
+jest.mock("../../../banner/Banner", () => () => <div data-testid="mock-banner" />);
+jest.mock("../../../navigation/Navigation", () => () => (
   <div data-testid="mock-navigation" />
 ));
 jest.mock(
-  "../rows/Row",
+  "../../../rows/Row",
   () =>
     ({
       title,
@@ -27,17 +27,18 @@ jest.mock(
       fetchURL: string;
       isLargeRow?: boolean;
     }) =>
-      (
-        <div
-          data-testid={`mock-row-${title}`}
-          data-fetch-url={fetchURL}
-          data-is-large-row={isLargeRow}
-        />
-      )
+      {
+        return (
+          <div
+            data-testid={`mock-row-${title}`}
+            data-fetch-url={fetchURL}
+            data-is-large-row={isLargeRow} />
+        );
+      }
 );
 
-describe("Home component", () => {
-  test("renders the Home component", () => {
+describe("Home component integration test", () => {
+  test("renders the Home component with navigation, banner & row componnents", () => {
     render(<Home />);
 
     const navigation = screen.getByTestId("mock-navigation");

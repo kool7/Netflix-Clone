@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../app/store';
 
-interface UserState {
+export interface UserState {
   user: any
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   user: null
 }
 

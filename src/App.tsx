@@ -18,6 +18,8 @@ function App() {
         dispatch(
           login({
             isSignedIn: true,
+            email: session?.user.email,
+            uid: session?.user.id
           })
         );
       } else {
