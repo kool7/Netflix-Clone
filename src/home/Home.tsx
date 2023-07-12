@@ -1,12 +1,12 @@
-import Requests from '../adapters/Requests';
-import Banner from '../banner/Banner';
-import Navigation from '../navigation/Navigation';
-import Row from '../rows/Row';
-import './Home.css';
+import Requests from "../adapters/Requests";
+import Banner from "../banner/Banner";
+import Navigation from "../navigation/Navigation";
+import Row from "../rows/Row";
+import "./Home.css";
 
 function HomeScreen() {
   return (
-    <div>
+    <>
       <Navigation />
       <Banner />
       <Row
@@ -21,7 +21,7 @@ function HomeScreen() {
       <Row title="Horror Movies" fetchURL={Requests.fetchHorrorMovies} />
       <Row title="Romance Movies" fetchURL={Requests.fetchRomanceMovies} />
       <Row title="Documentaries" fetchURL={Requests.fetchDocumentaries} />
-    </div>
+    </>
   );
 }
 
